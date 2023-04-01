@@ -16,10 +16,9 @@ class Product extends Model
         return $this->hasOne(Live::class);
     }
 
-    //you need editing
     public function seller()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function photos()
@@ -38,12 +37,6 @@ class Product extends Model
         ->using(Action::class)
         ->withtimestamps()
         ->withpivot('price');
-    }
-    //you should add it
-    public function favorite_products()
-    {
-        return $this->belongsToMany(User::class, 'favorites')
-        ->using(Favorite::class);
     }
 
 }
