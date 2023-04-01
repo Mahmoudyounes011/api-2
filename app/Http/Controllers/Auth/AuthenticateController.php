@@ -14,7 +14,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class AuthenticateController extends Controller
 {
 
-    public function signup(FormRequest $request, SignUpService $signupService)
+    public function signup(StoreUserRequest $request, SignUpService $signupService)
     {
         $data = $signupService->create($request);
         return response([
