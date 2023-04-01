@@ -18,7 +18,7 @@ class Product extends Model
 
     public function seller()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(User::class);
     }
 
     public function photos()
