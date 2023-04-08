@@ -40,12 +40,16 @@ Route::get('/home',function()
 Route::get('/ShowProduct/{id}',function($id)
 {
     $product = Product::find($id);
-    event(new ViewEvent($product));
+    if(!isset($product->live))
+        $product->live()->create(['live'=>0 ,'like'=>0]);
+        event(new ViewEvent($product));
 });
 
 Route::get('/LikeProduct/{id}',function($id)
 {
     $product = Product::find($id);
+    if(!isset($product->live))
+        $product->live()->create(['live'=>0 ,'like'=>0]);
     event(new LikeEvent($product));
 });
 
