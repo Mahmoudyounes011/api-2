@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Live extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'product_id';
+
+    protected $fillable =  ['view'.'like'];
+
 }
