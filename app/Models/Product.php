@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,4 +40,14 @@ class Product extends Model
         ->withpivot('price');
     }
 
+    public function end()
+    {
+        return Carbon::now()->gt($this->end_time);
+    }
+
+    public function visible($quary)
+    {
+        return $quary->where('end_time',false);
+
+    }
 }

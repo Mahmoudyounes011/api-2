@@ -27,7 +27,7 @@ return new class extends Migration
 
             $table->double('price');
 
-            $table->date('end_time');
+            $table->boolean('end_time');
 
             $table->timestamps();
         });
